@@ -113,7 +113,7 @@ def getNextMonthEnd(year=None, month=None):
 
 
 # 获取某年某月的第一个星期几时间戳,默认当前时间,星期一
-def getFirstWeek(year=None, month=None, day=1):
+def getFirstWeek(year=None, month=None, wday=1):
     ctime = datetime.datetime.now()
     if year:
         year = int(year)
@@ -126,10 +126,10 @@ def getFirstWeek(year=None, month=None, day=1):
 
     day = datetime.date(year, month, 1)
     weekday = day.isoweekday()
-    if weekday == day:
+    if weekday == wday:
         dis = 0
     else:
-        dis = 7 - weekday + day
+        dis = 7 - weekday + wday
 
     _time = "%d-%d-%d 00:00:00" % (year, month, 1 + dis)
     timeStr = time.strptime(_time, "%Y-%m-%d %H:%M:%S")

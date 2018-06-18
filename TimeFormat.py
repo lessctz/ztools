@@ -131,10 +131,10 @@ def getFirstWeek(year=None, month=None, wday=1):
     else:
         dis = 7 - weekday + wday
 
-    _time = "%d-%d-%d 00:00:00" % (year, month, 1 + dis)
-    timeStr = time.strptime(_time, "%Y-%m-%d %H:%M:%S")
-    timeStamp = int(time.mktime(timeStr))
-    return timeStamp
+    timestr = "%d-%d-%d 00:00:00" % (year, month, 1 + dis)
+    timetuple = time.strptime(timestr, "%Y-%m-%d %H:%M:%S")
+    timestamp = int(time.mktime(timetuple))
+    return timestamp
 
 
 if __name__ == '__main__':

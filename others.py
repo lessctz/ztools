@@ -3,6 +3,7 @@
 import hashlib
 import json
 import random
+import math
 
 
 # 生成随机码，n为随机码的位数
@@ -91,6 +92,14 @@ def orderDict(ordict, order=None):
     if order == 'rvk':
         res = sorted(ordict.iteritems(), key=lambda x: (x[1], -ord(x[0])), reverse=True)
     return res
+
+
+# 将num数字的第idx个位置的值修改为val的值
+def RecordFlag(num, idx, val):
+    count = int(num / math.pow(10, (idx-1))) % 10
+    num = num + (val-count) * math.pow(10, (idx-1))
+    return num
+
 
 
 if __name__ == '__main__':
